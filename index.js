@@ -1,5 +1,7 @@
 /*🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️ Task 1: Warm-up! 🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️🏋️‍♂️*/
 
+const { parse } = require("@babel/core");
+
 /*MAKE SURE TO RETURN ALL OF THE ANSWERS INSIDE OF A FUNCTION (tasks 1d through task 7), IF YOU DON'T, THE AUTOGRADER WILL NOT WORK*/
 
 // task 1a, 1b, and 1c are not autograded
@@ -20,6 +22,11 @@ Do the following:
    HINT: no function required
 */
 
+//task 1a solution;
+let votingAge = 27;
+if (votingAge => 18){
+  console.log(true);
+}
 
 
 /*
@@ -33,8 +40,13 @@ Do the following:
    HINT: no function required
 */
 
-
-
+//task 1b solution;
+let firstV = 27;
+let secondV = 12;
+if (firstV > secondV){
+  firstV = "secondV is not old enough";
+console.log(firstV);
+}
 
 
 /*
@@ -47,8 +59,10 @@ Do the following:
 
    HINT: look up the Number method
 */
-
-
+ let fromNumber = "1999";
+console.log(fromNumber)
+ let toString = parseInt(fromNumber, 10);
+console.log(toString);
 
 
 /*
@@ -60,11 +74,10 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-  /*add your code here*/
+function multiply(a,b){
+  return a * b;
 }
-
-
+multiply(4,5);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -76,9 +89,11 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-  /*add your code here*/
+function dogYears(age){
+  let humanYears = age * 7 ;
+  return humanYears;
 }
+dogYears(5);
 
 
 
@@ -109,10 +124,24 @@ Puppies less than 1 year
 NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+function hungryDog(pounds,years){
+  if (years >= 1 && pounds <= 5){
+    return pounds * .05;
+  }else if(years >= 1 && pounds >= 6 && pounds <= 10){
+    return pounds *.04;
+  }else if(years >= 1 && pounds >= 11 && pounds <=15 ){
+    return pounds * .03;
+  }else if(years >= 1 && pounds > 15){
+    return pounds * .02;
+  }else if(years < 1 && years >= 0.583){
+    return pounds * .04;
+  }else if (years < 1 && years >= 0.333){
+    return pounds  *  .05;
+  }else if(years < 1 && years >= .16){
+    return pounds * .10;
+  }
 }
-
+console.log(hungryDog(15    , 1))
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -137,9 +166,32 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
-
+let user
+let computer = Math.random();
 function game(user, computer){
-  /*add your code here*/
+  if (computer < .33){
+    return 'rock';
+  }else if (computer < .66){   
+    return 'paper';
+  }else if (computer < 1){
+    return 'scissors';
+  }
+
+  if(user === computer){
+    return "it's a tie";
+  }else if (user === "rock" && computer === "scissors"){
+    return "you win!";
+  }else if (user === "rock" && computer === "paper"){
+    return "you lose!";
+  }else if (user === "paper" && computer === "scissors"){
+    return "you lose!";
+  }else if (user === "paper" && computer === "rock"){
+    return "you win!";
+  }else if (user === "scissors" && computer === "rock"){
+    return "you lose!";
+  }else if (user === "scissors" && computer === "paper"){
+    return "you win!";
+  }
 }
 
 
@@ -155,8 +207,9 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-  /*add your code here*/
+function miles(kilometers){
+ let miles = kilometers * 0.621371;
+ return miles;
 }
 
 
@@ -169,8 +222,9 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(centi){
+ let feet = centi / 30.48;
+ return feet;
 }
 
 
@@ -185,8 +239,10 @@ Using the annoyingSong function below do the following:
     "{number you gave as an argument} bottles of soda on the wall, {number you gave as an argument} bottles of soda, take one down pass it around {number you gave as an argument minus 1} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-      /*add your code here*/
+function annoyingSong(numStart){
+      for (let i = numStart;i > 0;i--){
+        return `${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i - 1} bottles of soda on the wall`;
+      }
 }
 
 
