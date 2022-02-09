@@ -261,8 +261,18 @@ Using the grade function below do the following:
  below should return 'you got an F'
 */
 
-function grade(/*Your Code here */){
-/*Your Code here */
+function grade(score){
+ if(score >= 90){
+   return 'you got an A';
+ }else if(score >= 80){
+   return 'you got a B';
+ }else if(score >= 70){
+  return 'you got a C';
+}else if(score >= 60){
+  return 'you got a D';
+}else{
+  return 'you got an F';
+}
 }
 
 
@@ -280,9 +290,15 @@ HINT - try looking up the .includes() method
 */
 
 
-function vowelCounter(/*add your code here*/) {
-  /*add your code here*/
-}
+function vowelCounter(word) {
+  for (var i = 0; i <= word.length - 1; i++) {
+      if (word.charAt(i) == "a" || word.charAt(i) == "e" || word.charAt(i) == "i" || word.charAt(i) == "o" || word.charAt(i) == "u") {
+        vowelsCount += 1;
+      }
+    }
+    return vowelsCount;
+  }
+
 
 
 
